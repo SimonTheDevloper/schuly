@@ -1,33 +1,8 @@
-const daten = {
-    fächer: [
-        {
-            fachname: "Mathe",
-            materialien: ["Mathebuch", "Theorieheft", "Übungsheft", "Taschenrechner", "Formelsammlung", "Zirkel",]
-        },
-        {
-            fachname: "Englisch",
-            materialien: ["Englischbuch", "Übungsheft"]
-        },
-        {
-            fachname: "IT",
-            materialien: ["IT-Buch", "USB-Stick"]
-        }
-    ],
-    stundenplan: [
-        {
-            WochenTag: "Montag",
-            fächer: ["Mathe", "Englisch"]
-        },
-        {
-            WochenTag: "Dienstag",
-            fächer: ["IT", "Englisch"]
-        },
-    ]
-}
+import { daten } from "./testDaten.js";
 
 const heuteDatum = new Date();
 const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
-//console.log(heuteWochentag);
+console.log(heuteWochentag);
 
 
 let alleWochentage = daten.stundenplan
@@ -39,15 +14,10 @@ console.log(fächerFürEinenTag)
 
 //console.log(alleWochentage)
 
-
-const alleFächer = daten.fächer; console.log()
-
+const alleFächer = daten.fächer;
 // Filtert alle Fächer, deren Name in der Liste der gewünschten Fächer ('fächerFürEinenTag') enthalten ist.
 const fachObjektZumFach = alleFächer.filter(fach =>
     fächerFürEinenTag.includes(fach.fachname)
 )
 const materialienZumFach = fachObjektZumFach.map(t => t.materialien).flat()
 console.log(materialienZumFach)
-
-
-
