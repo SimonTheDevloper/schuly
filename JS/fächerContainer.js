@@ -1,31 +1,43 @@
 import { daten } from "./daten.js";
 
-const container = document.getElementById('fachContainer');
+function renderFächerContainer() {
+    const container = document.getElementById('fachContainer');
+    container.innerHTML = '';
 
-container.innerHTML = '';
+    daten.fächer.forEach((fach, index) => {
+        console.log(index)
+        const fachID = `fach-${index}`
+        const fachName = fach.fachname
+        const materialListe = fach.materialien
 
-daten.fächer.forEach(fach => {
-    const fachName = fach.fachname
-    const materialListe = fach.materialien
+        console.log(fachName)
+        const fachDiv = document.createElement('div');
+        fachDiv.id = fachID
+        fachDiv.innerHTML += `<h2>${fachName}</h2>`;
 
-    console.log(fachName)
-    const fachDiv = document.createElement('div');
+        const materialSektion = document.createElement('section');
+        materialSektion.innerHTML += '<h3>Materialien:</h3>';
 
-    fachDiv.innerHTML += `<h2>${fachName}</h2>`;
+        const ul = document.createElement('ul');
 
-    const materialSektion = document.createElement('section');
-    materialSektion.innerHTML += '<h3>Materialien:</h3>';
+        materialListe.forEach(material => {
+            ul.innerHTML += `<li>${material}</li>`
+        });
 
-    const ul = document.createElement('ul');
+        materialSektion.appendChild(ul);
+        fachDiv.appendChild(materialSektion);
 
-    materialListe.forEach(material => {
-        ul.innerHTML += `<li>${material}</li>`
+
+
+        const hinzufügenSektion = document.createElement('section');
+        hinzufügenSektion.innerHTML += '<h3>Neues Material hinzufügen</h3>'
+        hinzufügenSektion.innerHTML +=
+            `<input placeholder="z.B.: Schnellhefzer" type="text" id="input-${fachID}"> 
+    <button id="btn-${fachID}">Hinzufügen</button>`
+
+        fachDiv.appendChild(hinzufügenSektion);
+        container.appendChild(fachDiv);
     });
+}
 
-    materialSektion.appendChild(ul);
-
-    fachDiv.appendChild(materialSektion);
-
-
-    container.appendChild(fachDiv)
-});
+document.addEventListener('DOMContentLoaded', renderFächerContainer);
