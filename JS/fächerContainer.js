@@ -32,12 +32,30 @@ function renderFächerContainer() {
         const hinzufügenSektion = document.createElement('section');
         hinzufügenSektion.innerHTML += '<h3>Neues Material hinzufügen</h3>'
         hinzufügenSektion.innerHTML +=
-            `<input placeholder="z.B.: Schnellhefzer" type="text" id="input-${fachID}"> 
-    <button id="btn-${fachID}">Hinzufügen</button>`
+            `<input placeholder="z.B.: Schnellhefzer" type="text" id="input-${fachID}">`
 
+        const buttonElement = document.createElement('button');
+        buttonElement.textContent = "Hinzufügen";
+        buttonElement.id = `btn-${fachID}`
+
+        buttonElement.addEventListener('click', () => neuesMaterialHinzufügen(index))
+
+        hinzufügenSektion.appendChild(buttonElement)
         fachDiv.appendChild(hinzufügenSektion);
         container.appendChild(fachDiv);
     });
 }
 
 document.addEventListener('DOMContentLoaded', renderFächerContainer);
+
+function neuesMaterialHinzufügen(fachIndex) {
+    const fachID = `fach-${fachIndex}`
+    const inputElement = document.getElementById(`input-${fachID}`);
+    const neuesMaterial = inputElement.value.trim();
+    console.log(neuesMaterial);
+
+    const fachObjekt = daten.fächer[fachIndex];
+    fachObjekt.materialien.push(neuesMaterial);
+
+    renderFächerContainer();
+}
