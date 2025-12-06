@@ -1,3 +1,4 @@
+import { daten } from "./daten.js";
 const neuesFach = document.getElementById("neuesFach");
 const hinzufügenButton = document.getElementById("fachHinzufügen");
 

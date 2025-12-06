@@ -23,23 +23,23 @@ export const daten = {
     ],
     stundenplan: [
         {
-            WochenTag: "Montag",
+            wochenTag: "Montag",
             fächer: ["Mathe", "Englisch"]
         },
         {
-            WochenTag: "Dienstag",
+            wochenTag: "Dienstag",
             fächer: ["IT", "Englisch"]
         },
         {
-            WochenTag: "Mittwoch",
+            wochenTag: "Mittwoch",
             fächer: ["Geschichte", "Mathe", "Sport"]
         },
         {
-            WochenTag: "Donnerstag",
+            wochenTag: "Donnerstag",
             fächer: ["IT", "Englisch", "Geschichte"]
         },
         {
-            WochenTag: "Freitag",
+            wochenTag: "Freitag",
             fächer: ["Mathe", "Sport"]
         }
     ]
