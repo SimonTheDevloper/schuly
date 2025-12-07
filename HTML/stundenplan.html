@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Stundenplan</title>
+    <link rel="stylesheet" href="../css/stundenplan.css">
 </head>
 
 <body>
@@ -12,42 +13,57 @@
     <p>Trage deine wöchentlichen Unterrichtsstunden ein</p>
 
     <button id="addfächerBtn">+ Stunde hinzufügen</button>
-
-    <hr>
     <section id="stundenPlanBereich">
         <section id="montag">
             <h2>Montag</h2>
             <ul id="fächerMontag"></ul>
         </section>
 
-        <hr>
-
         <section id="dienstag">
             <h2>Dienstag</h2>
             <ul id="fächerDienstag"></ul>
         </section>
-
-        <hr>
 
         <section id="mittwoch">
             <h2>Mittwoch</h2>
             <ul id="fächerMittwoch"></ul>
         </section>
 
-        <hr>
-
         <section id="donnerstag">
             <h2>Donnerstag</h2>
             <ul id="fächerDonnerstag"></ul>
         </section>
-
-        <hr>
 
         <section id="freitag">
             <h2>Freitag</h2>
             <ul id="fächerFreitag"></ul>
         </section>
     </section>
+    <div id="hinzufuegenDialog" class="dialog">
+        <div class="dialog-inhalt">
+            <h3>Stunde hinzufügen</h3>
+            <div class="formular-gruppe">
+                <label for="fachAuswahl">Fach wählen:</label>
+                <select id="fachAuswahl">
+                    <!-- Fächer werden via JS befüllt -->
+                </select>
+            </div>
+            <div class="formular-gruppe">
+                <label for="tagAuswahl">Tag wählen:</label>
+                <select id="tagAuswahl">
+                    <option value="Montag">Montag</option>
+                    <option value="Dienstag">Dienstag</option>
+                    <option value="Mittwoch">Mittwoch</option>
+                    <option value="Donnerstag">Donnerstag</option>
+                    <option value="Freitag">Freitag</option>
+                </select>
+            </div>
+            <div class="dialog-buttons">
+                <button id="abbrechenBtn">Abbrechen</button>
+                <button id="hinzufuegenDialogBtn">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="/js/stundenplan.js">
     </script>
 

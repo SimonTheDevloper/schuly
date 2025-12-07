@@ -1,0 +1,245 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+     line-height: 1.6;
+     color: #333;
+     background-color: #f8f9fa;
+     max-width: 800px;
+     margin: 0 auto;
+     padding: 20px;
+ }
+
+ h1 {
+     font-size: 2rem;
+     font-weight: 300;
+     margin-bottom: 10px;
+     color: #2c3e50;
+     text-align: center;
+ }
+
+ h2 {
+     font-size: 1.4rem;
+     font-weight: 400;
+     margin-bottom: 15px;
+     color: #34495e;
+     padding-bottom: 8px;
+     border-bottom: 1px solid #eaeaea;
+ }
+
+ p {
+     color: #7f8c8d;
+     margin-bottom: 25px;
+     text-align: center;
+     font-size: 0.95rem;
+ }
+
+ #addfächerBtn {
+     display: block;
+     width: 100%;
+     padding: 12px;
+     background: #3498db;
+     color: white;
+     border: none;
+     border-radius: 6px;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     margin-bottom: 25px;
+ }
+
+ #addfächerBtn:hover {
+     background: #2980b9;
+     transform: translateY(-1px);
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ }
+
+ #addfächerBtn:active {
+     transform: translateY(0);
+ }
+
+ #stundenPlanBereich {
+     display: flex;
+     flex-direction: column;
+     gap: 25px;
+ }
+
+ #stundenPlanBereich>section {
+     background: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+
+ #stundenPlanBereich>section:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+ }
+
+ ul {
+     list-style-type: none;
+ }
+
+ li {
+     padding: 12px 15px;
+     margin-bottom: 8px;
+     background: #f8f9fa;
+     border-radius: 4px;
+     border-left: 4px solid #3498db;
+     transition: all 0.2s ease;
+ }
+
+ li:hover {
+     background: #ecf0f1;
+     transform: translateX(2px);
+ }
+
+ @media (max-width: 600px) {
+     body {
+         padding: 15px;
+     }
+
+     h1 {
+         font-size: 1.6rem;
+     }
+
+     h2 {
+         font-size: 1.2rem;
+     }
+
+     #stundenPlanBereich>section {
+         padding: 15px;
+     }
+
+     li {
+         padding: 10px 12px;
+     }
+ }
+
+ /* Leere Tage-Stil */
+ ul:empty::after {
+     content: "Keine Fächer geplant";
+     color: #bdc3c7;
+     font-style: italic;
+     padding: 15px;
+     display: block;
+     text-align: center;
+ }
+
+ /* Farbliche Variation für verschiedene Tage */
+ #montag li {
+     border-left-color: #3498db;
+ }
+
+ #dienstag li {
+     border-left-color: #2ecc71;
+ }
+
+ #mittwoch li {
+     border-left-color: #9b59b6;
+ }
+
+ #donnerstag li {
+     border-left-color: #e67e22;
+ }
+
+ #freitag li {
+     border-left-color: #e74c3c;
+ }
+
+ .dialog {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 1000;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .dialog-inhalt {
+     background: white;
+     padding: 25px;
+     border-radius: 10px;
+     width: 90%;
+     max-width: 400px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+ }
+
+ .dialog-inhalt h3 {
+     margin-bottom: 20px;
+     color: #2c3e50;
+     font-weight: 400;
+ }
+
+ .formular-gruppe {
+     margin-bottom: 20px;
+ }
+
+ .formular-gruppe label {
+     display: block;
+     margin-bottom: 8px;
+     color: #34495e;
+     font-size: 0.95rem;
+ }
+
+ select {
+     width: 100%;
+     padding: 10px 12px;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 1rem;
+     color: #333;
+     background-color: #fff;
+     transition: border-color 0.2s ease;
+ }
+
+ select:focus {
+     outline: none;
+     border-color: #3498db;
+ }
+
+ .dialog-buttons {
+     display: flex;
+     justify-content: flex-end;
+     gap: 12px;
+     margin-top: 25px;
+     padding-top: 20px;
+     border-top: 1px solid #eee;
+ }
+
+ .dialog-buttons button {
+     padding: 10px 20px;
+     border-radius: 6px;
+     font-size: 0.95rem;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     border: none;
+ }
+
+ #abbrechenBtn {
+     background: #f8f9fa;
+     color: #7f8c8d;
+     border: 1px solid #ddd;
+ }
+
+ #abbrechenBtn:hover {
+     background: #e9ecef;
+ }
+
+ #hinzufuegenDialogBtn {
+     background: #3498db;
+     color: white;
+ }
+
+ #hinzufuegenDialogBtn:hover {
+     background: #2980b9;
+ }

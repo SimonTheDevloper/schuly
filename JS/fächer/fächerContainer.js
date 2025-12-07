@@ -11,7 +11,7 @@ if (!aktuelleDaten) {
     speichereDaten(aktuelleDaten);
 }
 
-function renderFächerContainer() {
+export function renderFächerContainer() {
     const container = document.getElementById('fachContainer');
     container.innerHTML = '';
 

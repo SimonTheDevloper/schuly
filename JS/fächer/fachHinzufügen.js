@@ -1,5 +1,6 @@
 import { daten } from "../utils/daten.js";
 import { speichereDaten, ladeDaten } from "../utils/speicher.js";
+import { renderFächerContainer } from "./fächerContainer.js";
 
 let aktuelleDaten = ladeDaten();
 
@@ -22,4 +23,5 @@ function neusesFachHinzufügen() {
     aktuelleDaten.fächer.push(neuesFachObjekt);
     console.log(aktuelleDaten.fächer)
     speichereDaten(aktuelleDaten);
+    renderFächerContainer();
 }
