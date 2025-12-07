@@ -31,5 +31,6 @@ hinzufügenBtn.addEventListener('click', () => {
     const wochenTagObj = aktuelleDaten.stundenplan.find(t => t.wochenTag === tag);
     wochenTagObj.fächer.push(fach);
     console.log(wochenTagObj);
+    speichereDaten(aktuelleDaten)
     renderStundenplan()
 })

@@ -1,6 +1,8 @@
 //import { daten } from "./testDaten.js";
+import { speichereDaten, ladeDaten } from "./speicher.js";
 
-const daten = {
+let daten = ladeDaten();
+const datenDemo = {
     fächer: [
         {
             fachname: "Mathe",
