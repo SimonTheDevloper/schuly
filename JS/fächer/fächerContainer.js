@@ -2,6 +2,14 @@ import { daten } from "../utils/daten.js";
 import { speichereDaten, ladeDaten } from "../utils/speicher.js";
 
 let aktuelleDaten = ladeDaten();
+if (!aktuelleDaten) {
+    console.log("Speicher war leer. Lade leere Struktur und speichere sie jetzt.");
+
+    aktuelleDaten = daten;
+
+    speichereDaten(aktuelleDaten);
+}
+
 let aktuellesFachIndex = null;
 
 const neuesMaterialDialog = document.getElementById('neuesMaterialDialog');
