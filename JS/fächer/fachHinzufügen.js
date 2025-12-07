@@ -1,5 +1,5 @@
-import { daten } from "./daten.js";
-import { speichereDaten, ladeDaten } from "./speicher.js";
+import { daten } from "../utils/daten.js";
+import { speichereDaten, ladeDaten } from "../utils/speicher.js";
 
 let aktuelleDaten = ladeDaten();
 
