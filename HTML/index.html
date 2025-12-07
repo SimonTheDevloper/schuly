@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schultschenmanger</title>
+    <title>PackPlanDein digitaler Schultaschenmanager</title>
+    <link rel="stylesheet" href="../css/startseite.css">
+
 </head>
 
 <body>
-    <h2>Das musst du heute mitnehmen</h2>
-    <p id="heutigeMaterialien">Keine Materialien hinzugefügt oder heute keine Fächer</p>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Pack<span>Plan</span></a>
+        <div class="nav-links">
+            <a href="#" class="active">Packliste</a>
+            <a href="stundenplan.html">Stundenplan</a>
+            <a href="faecher.html">Fächer</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Willkommen bei <span class="highlight">PackPlan</span></h1>
+        <p class="slogan">Dein smarter Begleiter für den Schulalltag - Nie wieder etwas vergessen!</p>
+    </header>
+
+    <!-- Packliste Bereich -->
+    <div class="packliste-container">
+        <div class="packliste-header">
+            <h2>Deine heutige Packliste</h2>
+            <div class="wochentag" id="aktuellerTag">Heute: Montag</div>
+        </div>
+
+        <div id="heutigeMaterialien">
+            <!-- Materialien werden hier eingefügt -->
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-karte">
+            <h3>Fächer verwalten</h3>
+            <p>Erstelle und verwalte deine Fächer mit den dazugehörigen Materialien. Alles an einem Ort.</p>
+        </div>
+
+        <div class="feature-karte">
+            <h3>Stundenplan organisieren</h3>
+            <p>Plane deine Woche mit unserem intuitiven Stundenplan. Übersichtlich und einfach zu bedienen.</p>
+        </div>
+
+        <div class="feature-karte">
+            <h3>Täglich vorbereitet</h3>
+            <p>PackPlan zeigt dir jeden Tag genau, was du für den Unterricht benötigst. Perfekt organisiert.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 PackPlan - Digitaler Schultaschenmanager | Entwickelt für Schüler:innen</p>
+        <p>Immer alles dabei, nie etwas vergessen.</p>
+    </footer>
 
     <script type="module" src="/js/packliste.js"></script>
 </body>

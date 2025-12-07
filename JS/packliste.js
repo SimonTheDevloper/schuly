@@ -1,75 +1,38 @@
-//import { daten } from "./testDaten.js";
 import { speichereDaten, ladeDaten } from "../js/utils/speicher.js";
 
 let daten = ladeDaten();
-const datenDemo = {
-    fächer: [
-        {
-            fachname: "Mathe",
-            materialien: ["Mathebuch", "Übungsheft", "Taschenrechner"]
-        },
-        {
-            fachname: "Englisch",
-            materialien: ["Englischbuch", "Heft"]
-        },
-        {
-            fachname: "IT",
-            materialien: ["IT-Buch", "USB-Stick"]
-        },
-        {
-            fachname: "Geschichte",
-            materialien: ["Geschichtsbuch", "Heft"]
-        },
-        {
-            fachname: "Sport",
-            materialien: ["Sportsachen", "Turnschuhe"]
-        }
-    ],
-    stundenplan: [
-        {
-            wochenTag: "Montag",
-            fächer: ["Mathe", "Englisch"]
-        },
-        {
-            wochenTag: "Dienstag",
-            fächer: ["IT", "Englisch"]
-        },
-        {
-            wochenTag: "Mittwoch",
-            fächer: ["Geschichte", "Mathe", "Sport"]
-        },
-        {
-            wochenTag: "Donnerstag",
-            fächer: ["IT", "Englisch", "Geschichte"]
-        },
-        {
-            wochenTag: "Freitag",
-            fächer: ["Mathe", "Sport"]
-        }
-    ]
-}
-const packliste = document.getElementById('heutigeMaterialien');
-/*const heuteDatum = new Date();
-const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
-console.log(heuteWochentag); */
 
-const heuteWochentag = "Montag"
 
-let alleWochentage = daten.stundenplan
+const packlisteContainer = document.getElementById('heutigeMaterialien');
 
+// Bestimme den heutigen Wochentag
+////const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
+let heuteWochentag = "Montag"
+let alleWochentage = daten.stundenplan;
 let einWochentag = alleWochentage.filter(objekt => objekt.wochenTag === heuteWochentag);
-let fächerFürEinenTag = einWochentag.map(tag => tag.fächer).flat()
+let fächerFürEinenTag = einWochentag.map(tag => tag.fächer).flat();
 
-console.log(fächerFürEinenTag)
+if (fächerFürEinenTag.length === 0) {
+    packlisteContainer.innerHTML = '<div class="keine-materialien">Heute keine Fächer geplant</div>';
+} else {
+    const alleFächer = daten.fächer;
+    const fachObjektZumFach = alleFächer.filter(fach =>
+        fächerFürEinenTag.includes(fach.fachname)
+    );
+    const materialienZumFach = fachObjektZumFach.map(t => t.materialien).flat();
 
-//console.log(alleWochentage)
+    if (materialienZumFach.length === 0) {
+        packlisteContainer.innerHTML = '<div class="keine-materialien">Keine Materialien für heutige Fächer hinterlegt</div>';
+    } else {
+        const ul = document.createElement('ul');
 
-const alleFächer = daten.fächer;
-// Filtert alle Fächer, deren Name in der Liste der gewünschten Fächer ('fächerFürEinenTag') enthalten ist.
-const fachObjektZumFach = alleFächer.filter(fach =>
-    fächerFürEinenTag.includes(fach.fachname)
-)
-const materialienZumFach = fachObjektZumFach.map(t => t.materialien).flat()
-console.log(materialienZumFach)
+        materialienZumFach.forEach(material => {
+            const li = document.createElement('li');
+            li.textContent = material;
+            ul.appendChild(li);
+        });
 
-packliste.textContent = materialienZumFach;
+        packlisteContainer.innerHTML = '';
+        packlisteContainer.appendChild(ul);
+    }
+}
