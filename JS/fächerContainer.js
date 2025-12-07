@@ -1,10 +1,21 @@
 import { daten } from "./daten.js";
+import { speichereDaten, ladeDaten } from "./speicher.js";
+
+let aktuelleDaten = ladeDaten();
+
+if (!aktuelleDaten) {
+    console.log("Speicher war leer. Lade leere Struktur und speichere sie jetzt.");
+
+    aktuelleDaten = daten;
+
+    speichereDaten(aktuelleDaten);
+}
 
 function renderFächerContainer() {
     const container = document.getElementById('fachContainer');
     container.innerHTML = '';
 
-    daten.fächer.forEach((fach, index) => {
+    aktuelleDaten.fächer.forEach((fach, index) => {
         console.log(index)
         const fachID = `fach-${index}`
         const fachName = fach.fachname
@@ -38,8 +49,7 @@ function renderFächerContainer() {
         buttonElement.textContent = "Hinzufügen";
         buttonElement.id = `btn-${fachID}`
 
-        buttonElement.addEventListener('click', () => neuesMaterialHinzufügen(index))
-
+        buttonElement.addEventListener('click', () => neuesMaterialHinzufügen(index));
         hinzufügenSektion.appendChild(buttonElement)
         fachDiv.appendChild(hinzufügenSektion);
         container.appendChild(fachDiv);
@@ -54,8 +64,8 @@ function neuesMaterialHinzufügen(fachIndex) {
     const neuesMaterial = inputElement.value.trim();
     console.log(neuesMaterial);
 
-    const fachObjekt = daten.fächer[fachIndex];
+    const fachObjekt = aktuelleDaten.fächer[fachIndex];
     fachObjekt.materialien.push(neuesMaterial);
-
+    speichereDaten(aktuelleDaten);
     renderFächerContainer();
 }

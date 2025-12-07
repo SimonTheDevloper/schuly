@@ -1,4 +1,4 @@
-export const daten = {
+export const datenDemo = {
     fächer: [
         {
             fachname: "Mathe",
@@ -44,7 +44,7 @@ export const daten = {
         }
     ]
 }
-const datenLeer = {
+export const daten = {
     fächer: [
 
     ],
