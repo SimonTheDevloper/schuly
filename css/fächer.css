@@ -193,6 +193,11 @@
            transform: translateX(2px);
        }
 
+       .mini {
+           font-size: 2px;
+           color: #ddd9d9;
+           margin-top: 1px;
+       }
 
        button {
            padding: 10px 20px;
