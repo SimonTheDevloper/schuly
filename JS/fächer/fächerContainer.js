@@ -41,6 +41,7 @@ neuesMaterialBestätigen.addEventListener('click', () => {
 });
 
 export function renderFächerContainer() {
+    aktuelleDaten = ladeDaten();
     const container = document.getElementById('fachContainer');
     container.innerHTML = '';
 
