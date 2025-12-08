@@ -28,8 +28,6 @@ neuesMaterialDialog.addEventListener('click', (e) => {
     }
 });
 
-
-
 neuesMaterialBestätigen.addEventListener('click', () => {
     const neuesMaterial = neuesMaterialEingabe.value.trim();
 
