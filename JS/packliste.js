@@ -6,8 +6,9 @@ let daten = ladeDaten();
 const packlisteContainer = document.getElementById('heutigeMaterialien');
 
 // Bestimme den heutigen Wochentag
-////const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
-let heuteWochentag = "Montag"
+const heuteDatum = new Date();
+const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
+//let heuteWochentag = "Montag"  ---- war nötig für die Test
 let alleWochentage = daten.stundenplan;
 let einWochentag = alleWochentage.filter(objekt => objekt.wochenTag === heuteWochentag);
 let fächerFürEinenTag = einWochentag.map(tag => tag.fächer).flat();
