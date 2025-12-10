@@ -6,18 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schultschenmanger</title>
     <link rel="stylesheet" href="../css/fächer.css">
+    <link rel="stylesheet" href="../css/navBar.css">
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav>
         <a href="../index.html" class="logo">Pack<span>Plan</span></a>
+        ≡
+        </button>
         <div class="nav-links">
             <a href="../index.html">Packliste</a>
-            <a href="stundenplan.html">Stundenplan</a>
-            <a href="fächer.html" class="active">Fächer</a>
+            <a href="./stundenplan.html">Stundenplan</a>
+            <a href="./fächer.html" class="active">Fächer</a>
         </div>
     </nav>
+
+    <!-- Slideout Menu -->
+    <div class="hamburger-menu">
+        <div class="menu-overlay" id="menuOverlay"></div>
+        <div class="slide-out-menu" id="slideOutMenu">
+            <div class="menu-header">
+                <a href="#" class="menu-logo">Pack<span>Plan</span></a>
+                <button class="close-menu" id="closeMenu" aria-label="Menü schließen">
+                    x
+                </button>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="../index.html">Packliste</a>
+                <a href="/stundenplan.html">Stundenplan</a>
+                <a href="/fächer.html" class="active">Fächer</a>
+            </div>
+
+            <div class="menu-footer">
+                <p>Immer alles dabei,<br>nie etwas vergessen.</p>
+            </div>
+        </div>
+    </div>
     <h1>Fächer</h1>
 
     <button id="fachHinzufuegenBtn">+ Neues Fach hinzufügen</button>
@@ -58,6 +83,7 @@
     <script type="module" src="/js/fächer/fachHinzufügen.js"></script>
     <script type="module" src="/js/fächer/fächerContainer.js"></script>
     <script type="module" src="/js/utils/daten.js"></script>
+    <script src="/js/utils/navBarController.js"></script>
 </body>
 
 </html>

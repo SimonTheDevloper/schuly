@@ -4,21 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PackPlanDein digitaler Schultaschenmanager</title>
+    <title>PackPlan - Dein digitaler Schultaschenmanager</title>
     <link rel="stylesheet" href="css/startseite.css">
-
+    <link rel="stylesheet" href="css/navBar.css">
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav>
         <a href="#" class="logo">Pack<span>Plan</span></a>
+        ≡
+        </button>
         <div class="nav-links">
             <a href="#" class="active">Packliste</a>
             <a href="/html/stundenplan.html">Stundenplan</a>
             <a href="/html/fächer.html">Fächer</a>
         </div>
     </nav>
+
+    <!-- Slideout Menu -->
+    <div class="hamburger-menu">
+        <div class="menu-overlay" id="menuOverlay"></div>
+        <div class="slide-out-menu" id="slideOutMenu">
+            <div class="menu-header">
+                <a href="#" class="menu-logo">Pack<span>Plan</span></a>
+                <button class="close-menu" id="closeMenu" aria-label="Menü schließen">
+                    x
+                </button>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#" class="active">Packliste</a>
+                <a href="/html/stundenplan.html">Stundenplan</a>
+                <a href="/html/fächer.html">Fächer</a>
+            </div>
+
+            <div class="menu-footer">
+                <p>Immer alles dabei,<br>nie etwas vergessen.</p>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Willkommen bei <span class="highlight">PackPlan</span></h1>
         <p class="slogan">Dein smarter Begleiter für den Schulalltag: Nie wieder etwas vergessen!</p>
@@ -32,7 +57,6 @@
 
         <div id="heutigeMaterialien">
             <!-- Materialien werden hier eingefügt -->
-
         </div>
     </div>
 
@@ -60,6 +84,43 @@
     </footer>
 
     <script type="module" src="/js/packliste.js"></script>
+    <script>const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const slideOutMenu = document.getElementById('slideOutMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburgerBtn.addEventListener('click', () => {
+            slideOutMenu.classList.add('open');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMenuFunction() {
+            slideOutMenu.classList.remove('open');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeMenuFunction);
+        menuOverlay.addEventListener('click', closeMenuFunction);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && slideOutMenu.classList.contains('open')) {
+                closeMenuFunction();
+            }
+        });
+
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenuFunction);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMenuFunction();
+            }
+        });</script>
+    <script src="/js/utils/navBarController.js"></script>
 </body>
 
 </html>
