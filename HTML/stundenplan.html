@@ -9,23 +9,24 @@
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav>
-        <a href="../index.html" class="logo">Pack<span>Plan</span></a>
-        ≡
+        <a href="#" class="logo">Pack<span>Plan</span></a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menü öffnen">
+            ≡
         </button>
         <div class="nav-links">
             <a href="../index.html">Packliste</a>
-            <a href="./stundenplan.html" class="active">Stundenplan</a>
-            <a href="./fächer.html">Fächer</a>
+            <a href="stundenplan.html" class="active">Stundenplan</a>
+            <a href="fächer.html">Fächer</a>
         </div>
     </nav>
 
-    <!-- Slideout Menu -->
     <div class="hamburger-menu">
         <div class="menu-overlay" id="menuOverlay"></div>
         <div class="slide-out-menu" id="slideOutMenu">
             <div class="menu-header">
-                <a href="#" class="menu-logo">Pack<span>Plan</span></a>
+                <a href="../index.html" class="menu-logo">Pack<span>Plan</span></a>
                 <button class="close-menu" id="closeMenu" aria-label="Menü schließen">
                     x
                 </button>
@@ -33,8 +34,8 @@
 
             <div class="mobile-nav-links">
                 <a href="../index.html">Packliste</a>
-                <a href="/stundenplan.html" class="active">Stundenplan</a>
-                <a href="/fächer.html">Fächer</a>
+                <a href="stundenplan.html" class="active">Stundenplan</a>
+                <a href="fächer.html">Fächer</a>
             </div>
 
             <div class="menu-footer">
@@ -99,6 +100,6 @@
     </div>
     <script type="module" src="/js/stundenplan.js"></script>
     <script src="/js/utils/navBarController.js"></script>
-    < </body>
+</body>
 
 </html>
