@@ -4,10 +4,12 @@ let daten = ladeDaten();
 
 
 const packlisteContainer = document.getElementById('heutigeMaterialien');
+const aktuellerTagElement = document.getElementById('aktuellerTag');
 
 // Bestimme den heutigen Wochentag
 const heuteDatum = new Date();
 const heuteWochentag = heuteDatum.toLocaleDateString("de-DE", { weekday: "long" });
+aktuellerTagElement.textContent = `Heute: ${heuteWochentag}`;
 //let heuteWochentag = "Montag"  ---- war nötig für die Test
 let alleWochentage = daten.stundenplan;
 let einWochentag = alleWochentage.filter(objekt => objekt.wochenTag === heuteWochentag);
